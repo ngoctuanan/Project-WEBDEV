@@ -14,6 +14,8 @@ import com.codeElevate.SevieceSystemBooking.entity.Ad;
 import com.codeElevate.SevieceSystemBooking.entity.User;
 import com.codeElevate.SevieceSystemBooking.repository.AdRepository;
 import com.codeElevate.SevieceSystemBooking.repository.UserRepository;
+import com.codeElevate.ServiceBookingSystem.dto.ReservationDTO;
+import com.codeElevate.ServiceBookingSystem.repository.ReservationRepository;
 
 
 
@@ -23,6 +25,8 @@ public class CompanyServiceImpl implements CompanyService {
     private UserRepository userRepository;
     @Autowired
     private AdRepository adRepository;
+  @Autowired
+    private ReservationRepository reservationRepository;
 
     public boolean postAd(Long userId, AdDTO adDTO) throws IOException {
     Optional<User> optionalUser = userRepository.findById(userId);
@@ -41,7 +45,12 @@ public class CompanyServiceImpl implements CompanyService {
 public List<AdDTO> getAllAds(Long userId){
     return adRepository.findAllByUserId(userId).stream().map(Ad::getAdDto).collect(Collectors.toList());
 }
-
+public List<ReservationDTO> getAllAdBookings(Long companyId) {
+        return reservationRepository.findAllByCompanyId(companyId)
+                .stream()
+                .map(Reservation::getReservationDto)
+                .collect(Collectors.toList());
+    }
 public AdDTO getAdById(Long adId) {
     Optional<Ad> optionalAd = adRepository.findById(adId);
     if (optionalAd.isPresent()) {
@@ -49,6 +58,7 @@ public AdDTO getAdById(Long adId) {
     }
     return null;
 }
+  
 public boolean updateAd(Long adId, AdDTO adDTO) throws IOException {
     Optional<Ad> optionalAd = adRepository.findById(adId);
     if (optionalAd.isPresent()) {
