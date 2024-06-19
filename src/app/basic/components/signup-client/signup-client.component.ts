@@ -25,6 +25,7 @@ export class SignupClientComponent implements OnInit {
       email: [null, [Validators.email, Validators.required]],
       name: [null, [Validators.required]],
       lastname: [null, [Validators.required]],
+      phone: [null, [Validators.required]],  // Thêm FormControl cho phone
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required]]
     });
@@ -50,6 +51,13 @@ export class SignupClientComponent implements OnInit {
     } else {
       // Nếu form không hợp lệ, hiển thị thông báo lỗi
       this.notification.error('LỖI', 'Form không hợp lệ!', { nzDuration: 5000 });
+      // Đánh dấu tất cả các control là dirty và update validity để hiển thị lỗi
+      Object.values(this.validateForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
   }
 }
