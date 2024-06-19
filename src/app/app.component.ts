@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {  Router } from '@angular/router';
-import { UserStoargeService } from './basic/components/services/stogare/user-stoarge.service';
+import { UserStoargeService } from './basic/services/stogare/user-stoarge.service';
+
 
 @Component({
   selector: 'app-root',
