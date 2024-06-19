@@ -46,6 +46,10 @@ public class CompanyController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
     }
+    @GetMapping("/bookings/{companyId}")
+    public ResponseEntity<List<ReservationDTO>> getAllAdBookings(@PathVariable Long companyId) {
+        return ResponseEntity.ok(companyService.getAllAdBookings(companyId));
+    }
 
     @PutMapping("/ad/{adId}")
     public ResponseEntity<?> updateAd(@PathVariable Long adId, @ModelAttribute AdDTO adDTO) throws IOException {
