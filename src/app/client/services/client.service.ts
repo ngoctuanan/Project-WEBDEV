@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserStoargeService } from 'src/app/basic/components/services/stogare/user-stoarge.service';
+import { UserStorageService } from 'src/app/basic/services/storage/user-storage.service';
 
 const BASIC_URL = 'http://localhost:8080/';
 
@@ -16,13 +16,24 @@ export class ClientService {
       headers: this.createAuthorizationHeader()
     });
   }
-   searchAdByName(name: any): Observable<any> {
+  searchAdByName(name: any): Observable<any> {
     return this.http.get(`${BASIC_URL}/api/client/search/${name}`, {
         headers: this.createAuthorizationHeader()
     });
   }
+  getAdDetailsByAdId(adId:any): Observable<any> {
+    return this.http.get(BASIC_URL + '/api/client/ad/${adId}', {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+  bookService(bookDTO: any): Observable<any> {
+    
+    return this.http.post(BASIC_URL + `/api/client/book-service`, bookDTO, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
-    return authHeaders.set('Authorization', 'Bearer ' + UserStoargeService.getToken());
+    return authHeaders.set('Authorization', 'Bearer ' + UserStorageService.getToken());
   }
 }
