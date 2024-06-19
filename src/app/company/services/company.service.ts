@@ -12,7 +12,7 @@ const BASIC_URL = 'http://localhost:8080/';
   providedIn: 'root'
 })
 export class CompanyService {
-  
+  http: any;
   constructor(private http: HttpClient) { }
 
   postAd(adDTO: any): Observable<any> {
@@ -33,6 +33,12 @@ export class CompanyService {
     return this.http.get(BASIC_URL + `api/company/ad/${adId}`, {
       headers: this.createAuthorizationHeader()
     })
+  }
+  getAllAdBookings(): Observable<any> {
+    const companyId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `api/company/bookings/${companyId}`, {
+        headers: this.createAuthorizationHeader()
+    });
   }
 
   updateAd(adId:any, adDTO:any): Observable<any> {
