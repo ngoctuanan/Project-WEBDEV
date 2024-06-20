@@ -1,10 +1,26 @@
 import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-client-dashboard',
-  templateUrl: './client-dashboard.component.html',
-  styleUrls: ['./client-dashboard.component.scss']
-})
-export class ClientDashboardComponent {
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-}
+import { ClientDashboardComponent } from './client-dashboard.component';
+
+describe('ClientDashboardComponent', () => {
+  let component: ClientDashboardComponent;
+  let fixture: ComponentFixture<ClientDashboardComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ClientDashboardComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(ClientDashboardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
