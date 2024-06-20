@@ -8,7 +8,7 @@ import { CompanyService } from 'src/company/services/company.service';
 })
 
 export class CompanyDashboardComponent {
-  constructor(private companyService: CompanyService) {}
+  constructor(private companyService: CompanyService, private notificationService: NotificationService) {}
 
   ngOnInit() {
     this.getAllAdBookings();

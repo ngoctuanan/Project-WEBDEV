@@ -40,6 +40,26 @@ export class CompanyService {
         headers: this.createAuthorizationHeader()
     });
 }
+changeBookingStatus(bookingId: number, status:string){
+  this.companyService.changeBookingStatus(bookingId, status).subscribe(res=>{
+    this.notification
+      .success(
+        'SUCCESS',
+        `Booking status changed successfully`,
+        { nzDuration: 5000 }
+      );
+     this.getAllAdBookings();
+  }, error =>{
+    this.notification
+      .error([
+        'ERROR',
+        `${error.message}`,
+        { nzDuration: 5000 }
+      )
+  })
+}
+
+
 
   updateAd(adId:any, adDTO:any): Observable<any> {
     const userId = UserStoargeService.getUserId();
