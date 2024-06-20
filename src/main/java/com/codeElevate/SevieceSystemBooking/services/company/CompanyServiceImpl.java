@@ -16,7 +16,6 @@ import com.codeElevate.SevieceSystemBooking.repository.AdRepository;
 import com.codeElevate.SevieceSystemBooking.repository.UserRepository;
 import com.codeElevate.ServiceBookingSystem.dto.ReservationDTO;
 import com.codeElevate.ServiceBookingSystem.repository.ReservationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 
