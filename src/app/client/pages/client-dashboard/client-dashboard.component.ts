@@ -1,26 +1,40 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ClientService } from '../../services/client.service';
 
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ClientDashboardComponent } from './client-dashboard.component';
-
-describe('ClientDashboardComponent', () => {
-  let component: ClientDashboardComponent;
-  let fixture: ComponentFixture<ClientDashboardComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ClientDashboardComponent]
+@Component({
+  selector: 'app-client-dashboard',
+  templateUrl: './client-dashboard.component.html',
+  styleUrl: './client-dashboard.component.scss'
+})
+export class ClientDashboardComponent {
+  ads: any = [];
+  validateForm!: FormGroup;
+  
+  constructor(private clientService: ClientService, private fb: FormBuilder) {}
+  
+  getAllAds() {
+      this.clientService.getAllAds().subscribe(res => {
+          this.ads = res;
+      })
+  }
+  
+  ngOnInit() {
+      this.validateForm = this.fb.group({
+          service: [null, [Validators.required]]
+      })
+      this.getAllAds();
+  }
+  searchAdByName() {
+    this.clientService.searchAdByName(this.validateForm.get(['service']).value).subscribe(res => {
+        this.ads = res;
     })
-    .compileComponents();
+  } 
 
-    fixture = TestBed.createComponent(ClientDashboardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
-
+  
+  updateImg(img) {
+      return 'data:image/jpeg;base64,' + img;
+  }
+  
+}
