@@ -14,11 +14,17 @@ import com.codeElevate.SevieceSystemBooking.entity.Ad;
 import com.codeElevate.SevieceSystemBooking.entity.User;
 import com.codeElevate.SevieceSystemBooking.repository.AdRepository;
 import com.codeElevate.SevieceSystemBooking.repository.UserRepository;
+import com.codeElevate.ServiceBookingSystem.dto.ReservationDTO;
+import com.codeElevate.ServiceBookingSystem.repository.ReservationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
+  @Autowired
+    private ReservationRepository reservationRepository;
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -49,6 +55,12 @@ public AdDTO getAdById(Long adId) {
     }
     return null;
 }
+  public List<ReservationDTO> getAllAdBookings(Long companyId) {
+        return reservationRepository.findAllByCompanyId(companyId)
+                .stream()
+                .map(Reservation::getReservationDto)
+                .collect(Collectors.toList());
+    }
 public boolean updateAd(Long adId, AdDTO adDTO) throws IOException {
     Optional<Ad> optionalAd = adRepository.findById(adId);
     if (optionalAd.isPresent()) {
