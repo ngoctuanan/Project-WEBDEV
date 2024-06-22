@@ -1,88 +1,68 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserStoargeService } from 'src/app/basic/components/services/stogare/user-stoarge.service';
+import { UserStoargeService } from 'src/app/basic/services/storage/user-stoarge.service';
 
-
-
-
-const BASIC_URL = 'http://localhost:8080/';
+const BASIC_URL = "http://localhost:8080/";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
-  http: any;
+
   constructor(private http: HttpClient) { }
 
-  postAd(adDTO: any): Observable<any> {
-    const userId = UserStoargeService .getUserId();
+  postAd(adDTO:any): Observable<any>{
+    const userId = UserStoargeService.getUserId();
     return this.http.post(BASIC_URL + `api/company/ad/${userId}`, adDTO, {
-      headers: this.createAuthorizationHeader()
+      headers : this.createAuthorizationHeader()
     })
   }
 
-  getAllAdsByUserId(): Observable<any> {
-    const userId = UserStoargeService .getUserId();
+  getAllAdsByUserId(): Observable<any>{
+    const userId = UserStoargeService.getUserId();
     return this.http.get(BASIC_URL + `api/company/ads/${userId}`, {
-      headers: this.createAuthorizationHeader()
+      headers : this.createAuthorizationHeader()
     })
   }
 
-  getAdById(adId:any): Observable<any> {
+  getAdById(adId:any): Observable<any>{
     return this.http.get(BASIC_URL + `api/company/ad/${adId}`, {
-      headers: this.createAuthorizationHeader()
+      headers : this.createAuthorizationHeader()
     })
   }
-  getAllAdBookings(): Observable<any> {
-    const companyId = UserStorageService.getUserId();
+
+  updateAd(adId:any, adDTO:any): Observable<any>{
+    return this.http.put(BASIC_URL + `api/company/ad/${adId}`, adDTO, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  deletedAd(adId:any): Observable<any>{
+    return this.http.delete(BASIC_URL + `api/company/ad/${adId}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  getAllAdBookings(): Observable<any>{
+    const companyId = UserStoargeService.getUserId();
     return this.http.get(BASIC_URL + `api/company/bookings/${companyId}`, {
-        headers: this.createAuthorizationHeader()
-    });
-}
-changeBookingStatus(bookingId: number, status:string){
-  this.companyService.changeBookingStatus(bookingId, status).subscribe(res=>{
-    this.notification
-      .success(
-        'SUCCESS',
-        `Booking status changed successfully`,
-        { nzDuration: 5000 }
-      );
-     this.getAllAdBookings();
-  }, error =>{
-    this.notification
-      .error([
-        'ERROR',
-        `${error.message}`,
-        { nzDuration: 5000 }
-      )
-  })
-}
-
-
-
-  updateAd(adId:any, adDTO:any): Observable<any> {
-    const userId = UserStoargeService.getUserId();
-    return this.http.put(BASIC_URL + `api/company/ad/${adId}`, adDTO,{
-      headers: this.createAuthorizationHeader()
+      headers : this.createAuthorizationHeader()
     })
   }
 
-  deleteAd(adId:any): Observable<any> {
-    const userId = UserStoargeService.getUserId();
-    return this.http.delete(BASIC_URL + `api/company/ad/${adId}`,{
-      headers: this.createAuthorizationHeader()
+  changeBookingStatus(bookingId: number, status: string): Observable<any>{
+
+    return this.http.get(BASIC_URL + `api/company/booking/${bookingId}/${status}`, {
+      headers : this.createAuthorizationHeader()
     })
   }
 
-  createAuthorizationHeader(): HttpHeaders {
+  createAuthorizationHeader(): HttpHeaders{
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
-        'Authorization', 
-        'Bearer ' + UserStoargeService.getToken());
+      'Authorization',
+      'Bearer ' + UserStoargeService.getToken()
+    )
   }
-  createAuthorizationHeader() {
-    throw new Error('Method not implemented.');
-  }
-  constructor() { }
 }

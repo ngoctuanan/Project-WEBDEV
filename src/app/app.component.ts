@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {  Router } from '@angular/router';
-import { UserStoargeService } from './basic/services/stogare/user-stoarge.service';
-
+import { UserStoargeService } from './basic/services/storage/user-stoarge.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +8,22 @@ import { UserStoargeService } from './basic/services/stogare/user-stoarge.servic
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'SeviceBookingSystemWeb';
+  title = 'ServiceBookingSystemWeb';
 
-  
-
-  isClientLoggedIn: boolean =  UserStoargeService.isClientLoggedIn();
+  isClientLoggedIn: boolean = UserStoargeService.isClientLoggedIn();
   isCompanyLoggedIn: boolean = UserStoargeService.isCompanyLoggedIn();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router){}
 
   ngOnInit(){
-    this.router.events.subscribe(event => {
-        this.isClientLoggedIn =  UserStoargeService.isClientLoggedIn();
-        this.isCompanyLoggedIn = UserStoargeService.isCompanyLoggedIn();  
+    this.router.events.subscribe(event =>{
+      this.isClientLoggedIn = UserStoargeService.isClientLoggedIn();
+      this.isCompanyLoggedIn = UserStoargeService.isCompanyLoggedIn();
     })
   }
+
   logout(){
     UserStoargeService.signOut();
     this.router.navigateByUrl('login');
-  } 
- }
-
+  }
+}

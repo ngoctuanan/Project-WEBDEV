@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SeviceBookingSystemWeb": {
+    "ServiceBookingSystemWeb": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sevice-booking-system-web",
+            "outputPath": "dist/service-booking-system-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SeviceBookingSystemWeb:build:production"
+              "browserTarget": "ServiceBookingSystemWeb:build:production"
             },
             "development": {
-              "browserTarget": "SeviceBookingSystemWeb:build:development"
+              "browserTarget": "ServiceBookingSystemWeb:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SeviceBookingSystemWeb:build"
+            "browserTarget": "ServiceBookingSystemWeb:build"
           }
         },
         "test": {
@@ -107,8 +107,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "5a067204-5cab-4f89-a4ae-d45a7e1623e2"
   }
 }

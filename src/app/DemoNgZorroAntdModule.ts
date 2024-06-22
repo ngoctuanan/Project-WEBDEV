@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 
 import { NzAffixModule } from 'ng-zorro-antd/affix';
@@ -29,6 +30,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzI18nModule } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -61,17 +63,15 @@ import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzTransferModule } from 'ng-zorro-antd/transfer';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
+import { NzTreeViewModule } from 'ng-zorro-antd/tree-view';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
-
-
+import { NzPipesModule } from 'ng-zorro-antd/pipes';
 
 @NgModule({
- 
   exports: [
-  
     NzAffixModule,
     NzAlertModule,
     NzAnchorModule,
@@ -98,6 +98,7 @@ import { NzResizableModule } from 'ng-zorro-antd/resizable';
     NzGridModule,
     NzI18nModule,
     NzIconModule,
+    NzImageModule,
     NzInputModule,
     NzInputNumberModule,
     NzLayoutModule,
@@ -132,11 +133,15 @@ import { NzResizableModule } from 'ng-zorro-antd/resizable';
     NzTransButtonModule,
     NzTransferModule,
     NzTreeModule,
+    NzTreeViewModule,
     NzTreeSelectModule,
     NzTypographyModule,
     NzUploadModule,
     NzWaveModule,
     NzResizableModule,
-  ],
+    NzPipesModule,
+  ]
 })
-export class DemoNgZorroAntdModule {}
+export class DemoNgZorroAntdModule {
+
+}

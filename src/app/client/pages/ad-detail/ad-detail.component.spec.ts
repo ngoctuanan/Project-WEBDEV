@@ -8,7 +8,7 @@ describe('AdDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdDetailComponent]
+      declarations: [ AdDetailComponent ]
     })
     .compileComponents();
 

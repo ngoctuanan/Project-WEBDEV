@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { SignupComponent } from './basic/components/signup/signup.component';
+import { LoginComponent } from './basic/components/login/login.component';
+import { SingupComponent } from './basic/components/singup/singup.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -14,12 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoNgZorroAntdModule } from './DemoNgZorroAntdModule';
 import { SignupClientComponent } from './basic/components/signup-client/signup-client.component';
-import { SignupCompanyComponent } from './basic/components/signup-company/signup-company/signup-company.component';
-import { LoginComponent } from './basic/components/login/login.component';
-
-
-
-
+import { SignupCompanyComponent } from './basic/components/signup-company/signup-company.component';
 
 registerLocaleData(en);
 
@@ -27,9 +22,9 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
+    SingupComponent,
     SignupClientComponent,
-    SignupCompanyComponent,
+    SignupCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +34,6 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     DemoNgZorroAntdModule,
     ReactiveFormsModule
-
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

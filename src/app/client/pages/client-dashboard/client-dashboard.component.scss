@@ -33,7 +33,7 @@ i {
     margin: 0;
     position: absolute;
     top: 50%;
-    -ms-transform: translatey(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -65,10 +65,11 @@ h2:hover {
     margin-right: auto;
     padding-bottom: 20px;
     margin-top: 20px;
-} 
 
-
-.bg {
-    background-color: #F8F8F8;
-    min-height: 91vh;
 }
+
+
+.bg{
+    background-color: #F8F8F8; 
+    min-height: 91vh;
+  }

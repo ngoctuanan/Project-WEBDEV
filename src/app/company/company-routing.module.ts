@@ -9,10 +9,9 @@ import { UpdateAdComponent } from './pages/update-ad/update-ad.component';
 const routes: Routes = [
   { path: '', component: CompanyComponent },
   { path: 'dashboard', component: CompanyDashboardComponent },
-  { path: 'ad', component: CreateAdComponent},
-  { path: 'ads', component: AllAdsComponent},
+  { path: 'ad', component: CreateAdComponent },
+  { path: 'ads', component: AllAdsComponent },
   { path: 'update/:id', component: UpdateAdComponent },
-
 ];
 
 @NgModule({

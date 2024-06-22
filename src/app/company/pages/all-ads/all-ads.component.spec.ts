@@ -6,10 +6,12 @@ describe('AllAdsComponent', () => {
   let component: AllAdsComponent;
   let fixture: ComponentFixture<AllAdsComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AllAdsComponent]
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ AllAdsComponent ]
+    })
+    .compileComponents();
+
     fixture = TestBed.createComponent(AllAdsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

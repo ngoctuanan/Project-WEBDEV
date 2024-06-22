@@ -48,9 +48,11 @@ $white-one: #fcfcfc;
     .main-header {
         .nav-links {
             display: none;
+
         }
     }
 }
+
 
 @media only screen and (max-width: 768px) {
     .nav-links {
@@ -74,8 +76,10 @@ $white-one: #fcfcfc;
     }
 }
 
+
 @media only screen and (min-width: 768px) {
     .mobile-sidenav {
+
         display: none;
     }
 }
@@ -114,6 +118,10 @@ $white-one: #fcfcfc;
     background-color: $primary-color;
     height: auto;
 
+    //   @include for-tablet-only {
+    //     padding: 0px 20px 5px;
+    //   }
+
     img.logo {
         width: 100px;
     }
@@ -124,10 +132,12 @@ $white-one: #fcfcfc;
 }
 
 // @include for-ipad-only {
-// .nav-links {
-// list-style-type: none;
+//   .nav-links {
+//     list-style-type: none;
+//   }
 // }
-// }
+
+
 .trigger {
     width: 30px;
     height: 30px;
@@ -174,7 +184,7 @@ $white-one: #fcfcfc;
 .sidebar-logo {
     min-height: 64px;
     margin-bottom: 20px;
-    // background-image: url("../../assets/1.1.png");
+    //   background-image: url("../../assets/1.1.png");
     background-size: 85%;
     background-repeat: no-repeat;
     background-position: center;
@@ -183,7 +193,7 @@ $white-one: #fcfcfc;
 .sidebar-logo-mobile {
     min-height: 64px;
     margin-bottom: 20px;
-    // background-image: url("../../assets/1.1.png");
+    //   background-image: url("../../assets/1.1.png");
     background-size: 85%;
     background-repeat: no-repeat;
     background-position: center;
@@ -211,9 +221,8 @@ $white-one: #fcfcfc;
         color: #808191;
         margin: 0px;
         padding: 0px !important;
-        //display: flex;
-        //align-items: center;
-        margin-bottom: 15px;
+        // display: flex;
+        // align-items: center;
     }
 
     .ant-menu-item {
@@ -256,13 +265,11 @@ $white-one: #fcfcfc;
             background-color: rgba(255, 255, 255, 0.1);
         }
     }
-
 }
-
 
 .inner-content {
     background: #fdfdfd;
-    min-height: calc(100vh0px);
+    min-height: calc(100vh - 0px);
 }
 
 .user-profile {
@@ -346,7 +353,6 @@ $white-one: #fcfcfc;
                 padding: 0px 19px !important;
             }
 
-
             .ant-menu-item .anticon {
                 margin: 0px auto !important;
             }
@@ -387,7 +393,6 @@ $white-one: #fcfcfc;
     .ant-menu-light .ant-menu-submenu-title:hover,
     .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open {
         color: #ffffff !important;
-
     }
 }
 
@@ -420,9 +425,10 @@ $white-one: #fcfcfc;
     justify-content: space-between;
     background: $primary-color;
     padding: 0px;
-    // @include for-tablet-only {
-    // padding: 0px 20px 5px;
-    // }
+
+    //   @include for-tablet-only {
+    //     padding: 0px 20px 5px;
+    //   }
 }
 
 img.logo {

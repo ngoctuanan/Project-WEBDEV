@@ -6,10 +6,12 @@ describe('ClientDashboardComponent', () => {
   let component: ClientDashboardComponent;
   let fixture: ComponentFixture<ClientDashboardComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ClientDashboardComponent]
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ClientDashboardComponent ]
+    })
+    .compileComponents();
+
     fixture = TestBed.createComponent(ClientDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
